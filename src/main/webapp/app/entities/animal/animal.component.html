@@ -1,0 +1,94 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterTutoApp.animal.home.title">Animals</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-animal" [routerLink]="['/animal/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jhipsterTutoApp.animal.home.createLabel">
+            Create new Animal
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="animals">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="name"><span jhiTranslate="jhipsterTutoApp.animal.name">Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="weight"><span jhiTranslate="jhipsterTutoApp.animal.weight">Weight</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="hasOwner"><span jhiTranslate="jhipsterTutoApp.animal.hasOwner">Has Owner</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="age"><span jhiTranslate="jhipsterTutoApp.animal.age">Age</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="speed"><span jhiTranslate="jhipsterTutoApp.animal.speed">Speed</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="height"><span jhiTranslate="jhipsterTutoApp.animal.height">Height</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="diet"><span jhiTranslate="jhipsterTutoApp.animal.diet">Diet</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="timeStamp"><span jhiTranslate="jhipsterTutoApp.animal.timeStamp">Time Stamp</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="statistics.bmi"><span jhiTranslate="jhipsterTutoApp.animal.statistics">Statistics</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="bird.subspecies"><span jhiTranslate="jhipsterTutoApp.animal.bird">Bird</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="reptile.subspecies"><span jhiTranslate="jhipsterTutoApp.animal.reptile">Reptile</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let animal of animals ;trackBy: trackId">
+                <td><a [routerLink]="['/animal', animal.id, 'view' ]">{{animal.id}}</a></td>
+                <td>{{animal.name}}</td>
+                <td>{{animal.weight}}</td>
+                <td>{{animal.hasOwner}}</td>
+                <td>{{animal.age}}</td>
+                <td>{{animal.speed}}</td>
+                <td>{{animal.height}}</td>
+                <td>{{animal.diet}}</td>
+                <td>{{animal.timeStamp | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="animal.statistics">
+                        <a [routerLink]="['../statistics', animal.statistics?.id, 'view' ]" >{{animal.statistics?.bmi}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="animal.bird">
+                        <a [routerLink]="['../bird', animal.bird?.id, 'view' ]" >{{animal.bird?.subspecies}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="animal.reptile">
+                        <a [routerLink]="['../reptile', animal.reptile?.id, 'view' ]" >{{animal.reptile?.subspecies}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/animal', animal.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/animal', animal.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'animal/'+ animal.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="animals && animals.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

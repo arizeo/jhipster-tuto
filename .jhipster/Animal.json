@@ -1,0 +1,114 @@
+{
+    "name": "Animal",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 15
+        },
+        {
+            "fieldName": "weight",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldName": "hasOwner",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "age",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldName": "speed",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "height",
+            "fieldType": "Float",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "diet",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 15
+        },
+        {
+            "fieldName": "timeStamp",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "statistics",
+            "otherEntityName": "statistics",
+            "otherEntityField": "bmi",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "animal(name)"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "habitat",
+            "otherEntityName": "habitat",
+            "otherEntityRelationshipName": "animal"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "animal",
+            "relationshipName": "animalcarer",
+            "otherEntityName": "animalCarer",
+            "otherEntityField": "name",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "bird",
+            "otherEntityName": "bird",
+            "otherEntityField": "subspecies"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "reptile",
+            "otherEntityName": "reptile",
+            "otherEntityField": "subspecies"
+        }
+    ],
+    "changelogDate": "20180815175031",
+    "entityTableName": "animal",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

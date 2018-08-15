@@ -1,0 +1,23 @@
+
+{
+    "jhipsterTutoApp": {
+        "animalCarer" : {
+            "home": {
+                "title": "Animal Carers",
+                "createLabel": "Create a new Animal Carer",
+                "createOrEditLabel": "Create or edit a Animal Carer"
+            },
+            "created": "A new Animal Carer is created with identifier {{ param }}",
+            "updated": "A Animal Carer is updated with identifier {{ param }}",
+            "deleted": "A Animal Carer is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Animal Carer {{ id }}?"
+            },
+            "detail": {
+                "title": "Animal Carer"
+            },
+            "name": "Name",
+            "animal": "Animal"
+        }
+    }
+}

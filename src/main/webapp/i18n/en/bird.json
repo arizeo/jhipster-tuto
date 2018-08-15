@@ -1,0 +1,25 @@
+
+{
+    "jhipsterTutoApp": {
+        "bird" : {
+            "home": {
+                "title": "Birds",
+                "createLabel": "Create a new Bird",
+                "createOrEditLabel": "Create or edit a Bird"
+            },
+            "created": "A new Bird is created with identifier {{ param }}",
+            "updated": "A Bird is updated with identifier {{ param }}",
+            "deleted": "A Bird is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Bird {{ id }}?"
+            },
+            "detail": {
+                "title": "Bird"
+            },
+            "subspecies": "Subspecies",
+            "canFly": "Can Fly",
+            "migratory": "Migratory",
+            "animal": "Animal"
+        }
+    }
+}

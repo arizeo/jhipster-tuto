@@ -1,0 +1,65 @@
+entity Animal {
+	name  String required maxlength(15),
+    weight Integer required min(0),
+    hasOwner Boolean required,
+    age Integer required min(0),
+    speed Double required,
+    height Float required,
+    diet String required maxlength(15),
+    timeStamp ZonedDateTime required,
+}
+
+entity Bird {
+	subspecies  String required maxlength(15),
+	canFly Boolean required,
+    migratory Boolean required,
+    }
+
+entity Reptile {
+	subspecies  String required maxlength(15),
+	legsNbr Integer required min(0),
+    shell Boolean required,
+}
+
+entity Statistics {
+	bmi  Double required,
+}
+
+
+entity AnimalCarer{
+	name String required maxlength(15)
+}
+
+entity Habitat{
+    name HabitatType,
+    temperature String required maxlength(15),
+}
+
+relationship ManyToMany {
+	Animal {animalcarer(name)} to AnimalCarer {animal(name)}
+   }
+
+relationship OneToOne {
+   Animal{statistics(bmi)} to Statistics{animal(name)}
+}
+
+relationship OneToMany {
+	Animal{habitat(name)} to Habitat{animal(name)},
+    Bird{animal(name)} to Animal{bird(subspecies)},
+    Reptile{animal(name)} to Animal{reptile(subspecies)}
+}
+
+enum HabitatType {
+  FOREST,
+  DESERT,
+  WATER,
+  GRASSLAND,
+  TUNDRA
+}
+
+paginate Animal with pagination
+paginate AnimalCarer with pagination
+paginate Bird with pagination
+paginate Reptile with pagination
+paginate Habitat with pagination
+paginate Statistics with pagination

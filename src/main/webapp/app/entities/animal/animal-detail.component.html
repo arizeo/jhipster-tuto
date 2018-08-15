@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="animal">
+            <h2><span jhiTranslate="jhipsterTutoApp.animal.detail.title">Animal</span> {{animal.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterTutoApp.animal.name">Name</span></dt>
+                <dd>
+                    <span>{{animal.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTutoApp.animal.weight">Weight</span></dt>
+                <dd>
+                    <span>{{animal.weight}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTutoApp.animal.hasOwner">Has Owner</span></dt>
+                <dd>
+                    <span>{{animal.hasOwner}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTutoApp.animal.age">Age</span></dt>
+                <dd>
+                    <span>{{animal.age}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTutoApp.animal.speed">Speed</span></dt>
+                <dd>
+                    <span>{{animal.speed}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTutoApp.animal.height">Height</span></dt>
+                <dd>
+                    <span>{{animal.height}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTutoApp.animal.diet">Diet</span></dt>
+                <dd>
+                    <span>{{animal.diet}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTutoApp.animal.timeStamp">Time Stamp</span></dt>
+                <dd>
+                    <span>{{animal.timeStamp}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTutoApp.animal.statistics">Statistics</span></dt>
+                <dd>
+                    <div *ngIf="animal.statistics">
+                        <a [routerLink]="['/statistics', animal.statistics?.id, 'view']">{{animal.statistics?.bmi}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTutoApp.animal.animalcarer">Animalcarer</span></dt>
+                <dd>
+                    <span *ngFor="let animalcarer of animal.animalcarers; let last = last">
+                        <a [routerLink]="['/animal-carer', animalcarer?.id, 'view' ]">{{animalcarer.name}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTutoApp.animal.bird">Bird</span></dt>
+                <dd>
+                    <div *ngIf="animal.bird">
+                        <a [routerLink]="['/bird', animal.bird?.id, 'view']">{{animal.bird?.subspecies}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTutoApp.animal.reptile">Reptile</span></dt>
+                <dd>
+                    <div *ngIf="animal.reptile">
+                        <a [routerLink]="['/reptile', animal.reptile?.id, 'view']">{{animal.reptile?.subspecies}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/animal', animal.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

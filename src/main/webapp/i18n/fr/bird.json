@@ -1,0 +1,25 @@
+
+{
+    "jhipsterTutoApp": {
+        "bird" : {
+            "home": {
+                "title": "Birds",
+                "createLabel": "Créer un nouveau Bird",
+                "createOrEditLabel": "Créer ou éditer un Bird"
+            },
+            "created": "Un nouveau Bird a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Bird avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Bird avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Bird {{ id }} ?"
+            },
+            "detail": {
+                "title": "Bird"
+            },
+            "subspecies": "Subspecies",
+            "canFly": "Can Fly",
+            "migratory": "Migratory",
+            "animal": "Animal"
+        }
+    }
+}

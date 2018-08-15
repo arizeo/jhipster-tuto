@@ -1,0 +1,36 @@
+{
+    "name": "Habitat",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "HabitatType",
+            "fieldValues": "FOREST,DESERT,WATER,GRASSLAND,TUNDRA"
+        },
+        {
+            "fieldName": "temperature",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 15
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "animal",
+            "otherEntityName": "animal",
+            "otherEntityField": "name"
+        }
+    ],
+    "changelogDate": "20180815175036",
+    "entityTableName": "habitat",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

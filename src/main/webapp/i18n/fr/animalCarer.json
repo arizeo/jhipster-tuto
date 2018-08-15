@@ -1,0 +1,23 @@
+
+{
+    "jhipsterTutoApp": {
+        "animalCarer" : {
+            "home": {
+                "title": "AnimalCarers",
+                "createLabel": "Créer un nouveau Animal Carer",
+                "createOrEditLabel": "Créer ou éditer un Animal Carer"
+            },
+            "created": "Un nouveau Animal Carer a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Animal Carer avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Animal Carer avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Animal Carer {{ id }} ?"
+            },
+            "detail": {
+                "title": "Animal Carer"
+            },
+            "name": "Name",
+            "animal": "Animal"
+        }
+    }
+}

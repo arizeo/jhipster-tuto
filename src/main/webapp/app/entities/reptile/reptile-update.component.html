@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-reptile-heading" jhiTranslate="jhipsterTutoApp.reptile.home.createOrEditLabel">Create or edit a Reptile</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!reptile.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="reptile.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTutoApp.reptile.subspecies" for="field_subspecies">Subspecies</label>
+                    <input type="text" class="form-control" name="subspecies" id="field_subspecies"
+                        [(ngModel)]="reptile.subspecies" required maxlength="15"/>
+                    <div [hidden]="!(editForm.controls.subspecies?.dirty && editForm.controls.subspecies?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.subspecies?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.subspecies?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 15 }">
+                        This field cannot be longer than 15 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTutoApp.reptile.legsNbr" for="field_legsNbr">Legs Nbr</label>
+                    <input type="number" class="form-control" name="legsNbr" id="field_legsNbr"
+                        [(ngModel)]="reptile.legsNbr" required min="0" jhiMin="0"/>
+                    <div [hidden]="!(editForm.controls.legsNbr?.dirty && editForm.controls.legsNbr?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.legsNbr?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.legsNbr?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.legsNbr?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTutoApp.reptile.shell" for="field_shell">Shell</label>
+                    <input type="checkbox" class="form-control" name="shell" id="field_shell"
+                        [(ngModel)]="reptile.shell" />
+                    <div [hidden]="!(editForm.controls.shell?.dirty && editForm.controls.shell?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.shell?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

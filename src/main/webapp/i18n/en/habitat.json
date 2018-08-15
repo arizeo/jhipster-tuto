@@ -1,0 +1,24 @@
+
+{
+    "jhipsterTutoApp": {
+        "habitat" : {
+            "home": {
+                "title": "Habitats",
+                "createLabel": "Create a new Habitat",
+                "createOrEditLabel": "Create or edit a Habitat"
+            },
+            "created": "A new Habitat is created with identifier {{ param }}",
+            "updated": "A Habitat is updated with identifier {{ param }}",
+            "deleted": "A Habitat is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Habitat {{ id }}?"
+            },
+            "detail": {
+                "title": "Habitat"
+            },
+            "name": "Name",
+            "temperature": "Temperature",
+            "animal": "Animal"
+        }
+    }
+}

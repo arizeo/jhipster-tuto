@@ -1,0 +1,34 @@
+
+{
+    "jhipsterTutoApp": {
+        "animal" : {
+            "home": {
+                "title": "Animals",
+                "createLabel": "Créer un nouveau Animal",
+                "createOrEditLabel": "Créer ou éditer un Animal"
+            },
+            "created": "Un nouveau Animal a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Animal avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Animal avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Animal {{ id }} ?"
+            },
+            "detail": {
+                "title": "Animal"
+            },
+            "name": "Name",
+            "weight": "Weight",
+            "hasOwner": "Has Owner",
+            "age": "Age",
+            "speed": "Speed",
+            "height": "Height",
+            "diet": "Diet",
+            "timeStamp": "Time Stamp",
+            "statistics": "Statistics",
+            "habitat": "Habitat",
+            "animalcarer": "Animalcarer",
+            "bird": "Bird",
+            "reptile": "Reptile"
+        }
+    }
+}

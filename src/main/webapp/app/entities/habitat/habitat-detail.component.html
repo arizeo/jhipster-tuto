@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="habitat">
+            <h2><span jhiTranslate="jhipsterTutoApp.habitat.detail.title">Habitat</span> {{habitat.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterTutoApp.habitat.name">Name</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jhipsterTutoApp.HabitatType.' + habitat.name}}">{{habitat.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTutoApp.habitat.temperature">Temperature</span></dt>
+                <dd>
+                    <span>{{habitat.temperature}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTutoApp.habitat.animal">Animal</span></dt>
+                <dd>
+                    <div *ngIf="habitat.animal">
+                        <a [routerLink]="['/animal', habitat.animal?.id, 'view']">{{habitat.animal?.name}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/habitat', habitat.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

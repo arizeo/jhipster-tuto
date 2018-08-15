@@ -1,0 +1,12 @@
+{
+    "jhipsterTutoApp": {
+        "HabitatType" : {
+            "null": "",
+            "FOREST": "FOREST",
+            "DESERT": "DESERT",
+            "WATER": "WATER",
+            "GRASSLAND": "GRASSLAND",
+            "TUNDRA": "TUNDRA"
+        }
+    }
+}

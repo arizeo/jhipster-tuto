@@ -1,0 +1,32 @@
+{
+    "name": "AnimalCarer",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 15
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "animal",
+            "otherEntityName": "animal",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "animalcarer"
+        }
+    ],
+    "changelogDate": "20180815175035",
+    "entityTableName": "animal_carer",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

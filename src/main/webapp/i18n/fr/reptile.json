@@ -1,0 +1,25 @@
+
+{
+    "jhipsterTutoApp": {
+        "reptile" : {
+            "home": {
+                "title": "Reptiles",
+                "createLabel": "Créer un nouveau Reptile",
+                "createOrEditLabel": "Créer ou éditer un Reptile"
+            },
+            "created": "Un nouveau Reptile a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Reptile avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Reptile avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Reptile {{ id }} ?"
+            },
+            "detail": {
+                "title": "Reptile"
+            },
+            "subspecies": "Subspecies",
+            "legsNbr": "Legs Nbr",
+            "shell": "Shell",
+            "animal": "Animal"
+        }
+    }
+}

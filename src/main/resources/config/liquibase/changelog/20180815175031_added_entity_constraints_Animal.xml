@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Animal.
+    -->
+    <changeSet id="20180815175031-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="statistics_id"
+                                 baseTableName="animal"
+                                 constraintName="fk_animal_statistics_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="statistics"/>
+
+        <addForeignKeyConstraint baseColumnNames="animals_id"
+                                 baseTableName="animal_animalcarer"
+                                 constraintName="fk_animal_animalcarer_animals_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="animal"/>
+        <addForeignKeyConstraint baseColumnNames="animalcarers_id"
+                                 baseTableName="animal_animalcarer"
+                                 constraintName="fk_animal_animalcarer_animalcarers_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="animal_carer"/>
+        
+        <addForeignKeyConstraint baseColumnNames="bird_id"
+                                 baseTableName="animal"
+                                 constraintName="fk_animal_bird_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bird"/>
+
+        <addForeignKeyConstraint baseColumnNames="reptile_id"
+                                 baseTableName="animal"
+                                 constraintName="fk_animal_reptile_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="reptile"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,177 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-animal-heading" jhiTranslate="jhipsterTutoApp.animal.home.createOrEditLabel">Create or edit a Animal</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!animal.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="animal.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTutoApp.animal.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="animal.name" required maxlength="15"/>
+                    <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 15 }">
+                        This field cannot be longer than 15 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTutoApp.animal.weight" for="field_weight">Weight</label>
+                    <input type="number" class="form-control" name="weight" id="field_weight"
+                        [(ngModel)]="animal.weight" required min="0" jhiMin="0"/>
+                    <div [hidden]="!(editForm.controls.weight?.dirty && editForm.controls.weight?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.weight?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.weight?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.weight?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTutoApp.animal.hasOwner" for="field_hasOwner">Has Owner</label>
+                    <input type="checkbox" class="form-control" name="hasOwner" id="field_hasOwner"
+                        [(ngModel)]="animal.hasOwner" />
+                    <div [hidden]="!(editForm.controls.hasOwner?.dirty && editForm.controls.hasOwner?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.hasOwner?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTutoApp.animal.age" for="field_age">Age</label>
+                    <input type="number" class="form-control" name="age" id="field_age"
+                        [(ngModel)]="animal.age" required min="0" jhiMin="0"/>
+                    <div [hidden]="!(editForm.controls.age?.dirty && editForm.controls.age?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.age?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.age?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.age?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTutoApp.animal.speed" for="field_speed">Speed</label>
+                    <input type="number" class="form-control" name="speed" id="field_speed"
+                        [(ngModel)]="animal.speed" required/>
+                    <div [hidden]="!(editForm.controls.speed?.dirty && editForm.controls.speed?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.speed?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.speed?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTutoApp.animal.height" for="field_height">Height</label>
+                    <input type="number" class="form-control" name="height" id="field_height"
+                        [(ngModel)]="animal.height" required/>
+                    <div [hidden]="!(editForm.controls.height?.dirty && editForm.controls.height?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.height?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.height?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTutoApp.animal.diet" for="field_diet">Diet</label>
+                    <input type="text" class="form-control" name="diet" id="field_diet"
+                        [(ngModel)]="animal.diet" required maxlength="15"/>
+                    <div [hidden]="!(editForm.controls.diet?.dirty && editForm.controls.diet?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.diet?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.diet?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 15 }">
+                        This field cannot be longer than 15 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTutoApp.animal.timeStamp" for="field_timeStamp">Time Stamp</label>
+                    <div class="d-flex">
+                        <input id="field_timeStamp" type="datetime-local" class="form-control" name="timeStamp" [(ngModel)]="timeStamp"
+                        required/>
+                    </div>
+                    <div [hidden]="!(editForm.controls.timeStamp?.dirty && editForm.controls.timeStamp?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.timeStamp?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.timeStamp?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTutoApp.animal.statistics" for="field_statistics">Statistics</label>
+                    <select class="form-control" id="field_statistics" name="statistics" [(ngModel)]="animal.statistics">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="statisticsOption.id === animal.statistics?.id ? animal.statistics : statisticsOption" *ngFor="let statisticsOption of statistics; trackBy: trackStatisticsById">{{statisticsOption.bmi}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="jhipsterTutoApp.animal.animalcarer" for="field_animalcarer">Animalcarer</label>
+                    <select class="form-control" id="field_animalcarer" multiple name="animalcarer" [(ngModel)]="animal.animalcarers">
+                        <option [ngValue]="getSelected(animal.animalcarers, animalCarerOption)" *ngFor="let animalCarerOption of animalcarers; trackBy: trackAnimalCarerById">{{animalCarerOption.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTutoApp.animal.bird" for="field_bird">Bird</label>
+                    <select class="form-control" id="field_bird" name="bird" [(ngModel)]="animal.bird" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="birdOption.id === animal.bird?.id ? animal.bird : birdOption" *ngFor="let birdOption of birds; trackBy: trackBirdById">{{birdOption.subspecies}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTutoApp.animal.reptile" for="field_reptile">Reptile</label>
+                    <select class="form-control" id="field_reptile" name="reptile" [(ngModel)]="animal.reptile" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="reptileOption.id === animal.reptile?.id ? animal.reptile : reptileOption" *ngFor="let reptileOption of reptiles; trackBy: trackReptileById">{{reptileOption.subspecies}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -22,18 +22,12 @@
     "serviceDiscoveryType": false,
     "buildTool": "maven",
     "enableSwaggerCodegen": false,
-    "jwtSecretKey": "8a987b0d5c5d023d2d523d0e1262549f28cb667f",
+    "jwtSecretKey": "59bce39bf0cc97e60b234fa3f950d4b68fdf7ed2",
     "clientFramework": "angularX",
     "useSass": false,
     "clientPackageManager": "yarn",
     "testFrameworks": [],
     "jhiPrefix": "jhi",
-    "otherModules": [
-      {
-        "name": "generator-jhipster-primeng",
-        "version": "2.0.58"
-      }
-    ],
     "enableTranslation": true,
     "nativeLanguage": "en",
     "languages": [

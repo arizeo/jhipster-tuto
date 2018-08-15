@@ -29,6 +29,42 @@
                     </span>
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu>
+                    <li>
+                        <a class="dropdown-item" routerLink="animal" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon [icon]="'asterisk'" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.animal">Animal</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="bird" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon [icon]="'asterisk'" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.bird">Bird</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="reptile" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon [icon]="'asterisk'" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.reptile">Reptile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="statistics" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon [icon]="'asterisk'" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.statistics">Statistics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="animal-carer" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon [icon]="'asterisk'" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.animalCarer">Animal Carer</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="habitat" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon [icon]="'asterisk'" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.habitat">Habitat</span>
+                        </a>
+                    </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>

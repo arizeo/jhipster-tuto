@@ -38,6 +38,17 @@ public class CacheConfiguration {
             cm.createCache(com.mycompany.myapp.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.mycompany.myapp.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.mycompany.myapp.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.Animal.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.Animal.class.getName() + ".habitats", jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.Animal.class.getName() + ".animalcarers", jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.Bird.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.Bird.class.getName() + ".animals", jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.Reptile.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.Reptile.class.getName() + ".animals", jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.Statistics.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.AnimalCarer.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.AnimalCarer.class.getName() + ".animals", jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.Habitat.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

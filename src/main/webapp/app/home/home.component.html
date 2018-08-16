@@ -20,6 +20,10 @@
                 <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>&nbsp;
                 <a class="alert-link" routerLink="register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
             </div>
+
+            <div class="alert alert-warning" *ngSwitchCase="true">
+                <a class="alert-link" target="_blank" href="http://81.104.255.15:8888/solr-ui/">Aml Reference</a>
+            </div>
         </div>
 
         <p jhiTranslate="home.question">

@@ -65,7 +65,7 @@ public class Animal implements Serializable {
     @Column(name = "time_stamp", nullable = false)
     private ZonedDateTime timeStamp;
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(unique = true)
     private Statistics statistics;
 

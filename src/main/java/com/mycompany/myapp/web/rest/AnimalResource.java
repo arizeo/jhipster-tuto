@@ -2,11 +2,14 @@ package com.mycompany.myapp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.mycompany.myapp.domain.Animal;
+import com.mycompany.myapp.domain.Statistics;
 import com.mycompany.myapp.repository.AnimalRepository;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
 import com.mycompany.myapp.web.rest.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
+
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -130,5 +133,33 @@ public class AnimalResource {
 
         animalRepository.deleteById(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+    }
+    
+    /**
+     * POST  /statistics : Create a new statistics.
+     *
+     * @param statistics the statistics to create
+     * @return the ResponseEntity with status 201 (Created) and with body the new statistics, or with status 400 (Bad Request) if the statistics has already an ID
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     */
+    @PostMapping("/animal/calculate-bmi/{animal}")
+    @Timed
+    public ResponseEntity<Animal> calculateBmi(@PathVariable(required=false,name="animal") String animal) throws URISyntaxException {
+        log.debug("REST request to calculate bmi of {} animal", animal);
+        if (StringUtils.isBlank(animal)) {
+            throw new BadRequestAlertException("A animal cannot be empty", ENTITY_NAME, "notnull");
+        }
+        Optional<Animal> result = animalRepository.findByName(animal);
+        if(result.isPresent()){
+        	Statistics newStats = new Statistics();
+        	Animal entity = result.get();
+        	
+			double bmi = entity.getWeight()/(entity.getHeight()*entity.getHeight());
+        	newStats.setBmi(bmi);
+        	newStats.animal(entity);
+        	entity.setStatistics(newStats);
+        	this.animalRepository.save(entity);
+        }
+        return ResponseUtil.wrapOrNotFound(result);
     }
 }

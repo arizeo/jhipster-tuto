@@ -13,7 +13,6 @@ import java.util.Optional;
 /**
  * Spring Data  repository for the Animal entity.
  */
-@SuppressWarnings("unused")
 @Repository
 public interface AnimalRepository extends JpaRepository<Animal, Long> {
 
@@ -26,5 +25,7 @@ public interface AnimalRepository extends JpaRepository<Animal, Long> {
 
     @Query("select animal from Animal animal left join fetch animal.animalcarers where animal.id =:id")
     Optional<Animal> findOneWithEagerRelationships(@Param("id") Long id);
+    
+    Optional<Animal> findByName(String name);
 
 }
